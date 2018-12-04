@@ -20,11 +20,16 @@ class Pesquisa(View):
         if request.method == "POST":
             if request.POST.get('pesquisa1') is not None:
                 lista = info_usuarios(request.POST.get('pesquisa1'))
-            if request.POST.get('pesquisa6') is not None:
-                lista =info_usuarios_by_tipo(request.POST.get('pesquisa6'))
-
+            if request.POST.get('pesquisa2') is not None:
+                lista = info_usuarios(request.POST.get('pesquisa2'))
+            if request.POST.get('pesquisa3') is not None:
+                lista = info_usuarios(request.POST.get('pesquisa3'))
+            if request.POST.get('pesquisa4Curso') is not None:
+                lista = info_usuarios_disciplinas(request.POST.get('pesquisa4Curso'), request.POST.get('pesquisa4Turma'))
             if request.POST.get('pesquisa5Usuario') is not None:
                 lista = info_usuarios_disciplinas(request.POST.get('pesquisa5Usuario'),request.POST.get('pesquisa5Tipo'))
+            if request.POST.get('pesquisa6') is not None:
+                lista =info_usuarios_by_tipo(request.POST.get('pesquisa6'))
             context_dict = {'Pessoas': lista}
             return render(request, self.template, context_dict)
 

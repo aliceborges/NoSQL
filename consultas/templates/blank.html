@@ -34,27 +34,33 @@
             </div>
             <div class="col-md-12">
               <p class="text-monospace text-left mt-5">Retornar nome do curso, duração, descrição e turmas<br></p>
-              <form class="form-inline">
+              <form method="post" action="{% url 'consultas:pesquisar' %}" class="form-inline">
                 <div class="input-group">
-                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Nome do curso">
-                  <div class="input-group-append"><button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button></div>
+                        {% csrf_token %}
+                        <input name="pesquisa2" type="text" class="form-control"  placeholder="Nome do Curso">
+                        <div class="input-group-append"><button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button></div>
                 </div>
               </form>
             </div>
             <div class="col-md-12">
               <p class="text-monospace text-left pt-5">Retornar curso e período</p>
-              <form class="form-inline">
+              <form method="post" action="{% url 'consultas:pesquisar' %}" class="form-inline">
                 <div class="input-group">
-                  <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Nome da turma">
-                  <div class="input-group-append"><button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button></div>
+                        {% csrf_token %}
+                        <input name="pesquisa3" type="text" class="form-control"  placeholder="Nome da Turma">
+                        <div class="input-group-append"><button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button></div>
                 </div>
               </form>
             </div>
             <div class="col-md-12">
               <p class="text-monospace text-left pt-5">Nome das disciplinas vinculadas a turma</p>
-              <form class="">
-                <div class="form-group"> <input type="email" class="form-control" placeholder="Nome do curso"> </div>
-                <div class="form-group"> <input type="text" class="form-control" placeholder="Nome da turma"> </div> <button type="submit" class="btn btn-primary text-left">Pesquisar</button>
+              <form method="post" action="{% url 'consultas:pesquisar' %}" class="form-inline">
+                <div class="input-group">
+                        {% csrf_token %}
+                        <input name="pesquisa4Curso" type="text" class="form-control"  placeholder="Nome do Curso">
+                        <input name="pesquisa4Turma" type="text" class="form-control"  placeholder="Nome da Turma">
+                        <div class="input-group-append"><button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button></div>
+                </div>
               </form>
             </div>
             <div class="col-md-12">
