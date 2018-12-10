@@ -18,28 +18,127 @@
   </nav>
   <div class="py-5 text-center"
        style="background-image: url(&quot;https://static.pingendo.com/cover-bubble-dark.svg&quot;); background-size: cover;">
-<div class="bg-white p-5 mx-auto col-md-16 col-16">
+<div class="bg-white p-5 mx-auto col-md-10 col-10">
 <table class="ui celled table">
   <thead>
     <tr>
+      {% if Pessoas %}
+
+      {% if Nome %}
       <th>Nome</th>
+      {% endif %}
+
+      {% if Usuario %}
       <th>Usuario</th>
+      {% endif %}
+
+      {% if Email %}
       <th>Email</th>
+      {% endif %}
+
+      {% if Senha %}
       <th>Senha</th>
+      {% endif %}
+
+      {% if Disciplina %}
       <th>Disciplina</th>
+      {% endif %}
+
+      {% if Curso %}
       <th>Curso</th>
+      {% endif %}
+
+      {% if Tipo %}
       <th>Tipo</th>
+      {% endif %}
+
   </tr></thead>
+  {%endif%}
   <tbody>
   {% for Pessoa in Pessoas %}
     <tr>
+      {% if Pessoa.nome%}
       <td data-label="Nome">{{Pessoa.nome}}</td>
+      {% endif %}
+
+      {% if Pessoa.usuario%}
       <td data-label="Usuario">{{Pessoa.usuario}}</td>
+      {% endif %}
+
+      {% if Pessoa.email%}
       <td data-label="Email">{{Pessoa.email}}</td>
+      {% endif %}
+
+      {% if Pessoa.senha%}
       <td data-label="Senha">{{Pessoa.senha}}</td>
+      {% endif %}
+
+      {% if Pessoa.disciplina%}
       <td data-label="Disciplina">{{Pessoa.disciplina}}</td>
+      {% endif %}
+
+      {% if Pessoa.curso%}
       <td data-label="Curso">{{Pessoa.curso}}</td>
+      {% endif %}
+
+      {% if Pessoa.tipo %}
       <td data-label="Tipo">{{Pessoa.tipo}}</td>
+      {% endif %}
+    </tr>
+  {% endfor%}
+
+  {%if Cursos%}
+
+      {% if Curso %}
+      <th>Nome Cursos</th>
+      {% endif %}
+
+      {% if Duracao %}
+      <th>Duração</th>
+      {% endif %}
+
+      {% if Periodo %}
+      <th>Periodo</th>
+      {% endif %}
+
+      {% if Descricao %}
+      <th>Descrição</th>
+      {% endif %}
+
+      {% if Turma %}
+      <th>Turmas</th>
+      {% endif %}
+
+      {% if Disciplina %}
+      <th>Disciplinas</th>
+      {% endif %}
+  {%endif%}
+
+  {% for Curso in Cursos %}
+    <tr>
+      {% if Curso.nome_curso %}
+      <td data-label="Nome Curso">{{Curso.nome_curso}}</td>
+      {% endif %}
+
+      {% if Curso.duracao %}
+      <td data-label="Duração">{{Curso.duracao}}</td>
+      {% endif %}
+
+      {% if Curso.periodo%}
+      <td data-label="Periodo">{{Curso.periodo}}</td>
+      {% endif %}
+
+      {% if Curso.descricao %}
+      <td data-label="Descrição">{{Curso.descricao}}</td>
+      {% endif %}
+
+      {% if Curso.turmas %}
+      <td data-label="Turmas">{{Curso.turmas}}</td>
+      {% endif %}
+
+      {% if Curso.disciplinas %}
+      <td data-label="Turmas">{{Curso.disciplinas}}</td>
+      {% endif %}
     </tr>
   {% endfor%}
   </tbody>
