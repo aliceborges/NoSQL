@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.views import View
 from cassandra.cluster import Cluster
 from consultas.models import PessoaModel, CursoModel
+from django.conf import settings
+from django.core.cache.backends.base import DEFAULT_TIMEOUT
+from django.views.decorators.cache import cache_page
 
 from django.views.generic.base import View
 from django.shortcuts import render
@@ -11,6 +14,8 @@ from neo4jrestclient import client
 from py2neo import authenticate, Graph, Node, Relationship,Path,Rel
 graph = Graph()
 from django.http import HttpResponse
+
+CACHE_TTL = getattr(settings, 'CACHE_TTL', DEFAULT_TIMEOUT)
 
 DB_NAME = 'escola'
 
@@ -63,7 +68,6 @@ class Pesquisa(View):
                     context_dict = {'Pessoas': lista, 'Nome': True, 'Curso': True, 'Disciplina': True, 'Turma': True}
 
             return render(request, self.template, context_dict)
-
 
 def info_usuarios(usuario):
     cluster = Cluster()
