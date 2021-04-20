@@ -13,7 +13,7 @@ neo4jrestclient==2.1.1
 neotime==1.0.0
 pluggy==0.8.0
 prompt-toolkit==1.0.15
-py==1.7.0
+py==1.10.0
 py2neo==2.0.8
 Pygments==2.3.0
 pytest==4.0.1
