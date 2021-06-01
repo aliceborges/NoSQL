@@ -20,5 +20,5 @@ pytest==4.0.1
 pytz==2018.7
 requests==2.20.1
 six==1.11.0
-urllib3==1.22
+urllib3==1.26.5
 wcwidth==0.1.7
